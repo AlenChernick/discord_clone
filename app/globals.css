@@ -1,11 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@tailwind screens;
 
 html,
 body,
 :root {
   height: 100%;
+}
+
+@media (min-width: 768px) {
+  .md-new-flex {
+    display: flex !important;
+  }
 }
 
 @layer base {
