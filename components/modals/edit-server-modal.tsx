@@ -2,6 +2,7 @@
 
 import axios from 'axios';
 import * as z from 'zod';
+import { useEffect, type FC } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 
@@ -19,7 +20,6 @@ import { Button } from '@/components/ui/button';
 import FileUpload from '@/components/file-upload';
 import { useRouter } from 'next/navigation';
 import { useModal } from '@/hooks/use-modal-store';
-import type { FC } from 'react';
 
 const formSchema = z.object({
   name: z.string().min(1, {
@@ -30,11 +30,12 @@ const formSchema = z.object({
   }),
 });
 
-const CreateServerModal: FC = () => {
-  const { isOpen, onClose, type } = useModal();
+const EditServerModal: FC = () => {
+  const { isOpen, onClose, type, data } = useModal();
   const router = useRouter();
 
-  const isModalOpen = isOpen && type === 'createServer';
+  const isModalOpen = isOpen && type === 'editServer';
+  const { server } = data;
 
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -44,11 +45,18 @@ const CreateServerModal: FC = () => {
     },
   });
 
+  useEffect(() => {
+    if (server) {
+      form.setValue('name', server.name);
+      form.setValue('imageUrl', server.imageUrl);
+    }
+  }, [server, form]);
+
   const isLoading = form.formState.isSubmitting;
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      await axios.post('/api/servers', values);
+      await axios.patch(`/api/servers/${server?.id}`, values);
 
       form.reset();
       router.refresh();
@@ -113,7 +121,7 @@ const CreateServerModal: FC = () => {
             </div>
             <DialogFooter className='bg-gray-100 px-6 py-4'>
               <Button variant='primary' disabled={isLoading}>
-                Create
+                Save
               </Button>
             </DialogFooter>
           </form>
@@ -122,4 +130,4 @@ const CreateServerModal: FC = () => {
     </Dialog>
   );
 };
-export default CreateServerModal;
+export default EditServerModal;
