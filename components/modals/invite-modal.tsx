@@ -31,7 +31,7 @@ const InviteModal: FC = () => {
     }, 1000);
   };
 
-  const onNewLink = async () => {
+  const onGenerateNewLink = async () => {
     try {
       setIsLoading(true);
       const response = await axios.patch(`/api/servers/${server?.id}/invite-code`);
@@ -63,7 +63,7 @@ const InviteModal: FC = () => {
             </Button>
           </div>
           <Button
-            onClick={onNewLink}
+            onClick={onGenerateNewLink}
             disabled={isLoading}
             variant='link'
             size='sm'
