@@ -4,7 +4,7 @@ import axios from 'axios';
 import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { useEffect, useState } from 'react';
+import { type FC, useEffect, useState } from 'react';
 
 import {
   Dialog,
@@ -29,7 +29,7 @@ const formSchema = z.object({
   }),
 });
 
-const InitialModal = () => {
+const InitialModal: FC = () => {
   const [isMounted, setIsMounted] = useState(false);
 
   const router = useRouter();
