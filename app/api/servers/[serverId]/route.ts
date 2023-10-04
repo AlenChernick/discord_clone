@@ -24,7 +24,7 @@ export async function PATCH(req: Request, { params }: { params: { serverId: stri
 
     return NextResponse.json(server);
   } catch (error) {
-    console.log('[SERVER_ID_PATCH', error);
+    console.log('[SERVER_ID_PATCH]', error);
     return new NextResponse('Internal Error', { status: 500 });
   }
 }
