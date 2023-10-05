@@ -1,10 +1,11 @@
 import './globals.css';
 import type { Metadata } from 'next';
+import { cn } from '@/lib/utils';
 import { Open_Sans } from 'next/font/google';
 import { ClerkProvider } from '@clerk/nextjs';
 import { ThemeProvider } from '@/components/providers/theme-provider';
 import { ModalProvider } from '@/components/providers/modal-provider';
-import { cn } from '@/lib/utils';
+import { SocketProvider } from '@/components/providers/socket-provider';
 
 const font = Open_Sans({ subsets: ['latin'] });
 
@@ -20,8 +21,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <body className={cn(font.className, 'bg-white dark:bg-[#313338]')}>
           <main>
             <ThemeProvider attribute='class' defaultTheme='dark' enableSystem storageKey='discord-theme'>
-              <ModalProvider />
-              {children}
+              <SocketProvider>
+                <ModalProvider />
+                {children}
+              </SocketProvider>
             </ThemeProvider>
           </main>
         </body>
