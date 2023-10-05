@@ -38,7 +38,6 @@ const ServerSearch: FC<ServerSearchProps> = ({ data }) => {
       }
     };
     document.addEventListener('keydown', down);
-    console.log(document);
     return () => document.removeEventListener('keydown', down);
   }, []);
 

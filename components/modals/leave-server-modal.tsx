@@ -33,6 +33,8 @@ const LeaveServerModal: FC = () => {
     } catch (error) {
       console.log(error);
       setIsLoading(false);
+    } finally {
+      setIsLoading(false);
     }
   };
 

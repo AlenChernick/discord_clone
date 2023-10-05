@@ -38,6 +38,7 @@ const InviteModal: FC = () => {
       onOpen('invite', { server: response.data });
     } catch (error) {
       console.log(error);
+      setIsLoading(false);
     } finally {
       setIsLoading(false);
     }
