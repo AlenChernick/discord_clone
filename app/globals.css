@@ -9,12 +9,6 @@ body,
   height: 100%;
 }
 
-@media (min-width: 768px) {
-  .md-new-flex {
-    display: flex !important;
-  }
-}
-
 @layer base {
   :root {
     --background: 0 0% 100%;
