@@ -1,7 +1,50 @@
 import type { NextPage } from 'next';
+import { currentProfile } from '@/lib/current-profile';
+import { redirectToSignIn } from '@clerk/nextjs';
+import { redirect } from 'next/navigation';
+import { db } from '@/lib/db';
 
-const ServerIdPage: NextPage = () => {
-  return <div>ServerIdPage</div>;
+type ServerIdPageProps = {
+  params: {
+    serverId: string;
+  };
+};
+
+const ServerIdPage: NextPage<ServerIdPageProps> = async ({ params }) => {
+  const profile = await currentProfile();
+
+  if (!profile) {
+    return redirectToSignIn();
+  }
+
+  const server = await db.server.findUnique({
+    where: {
+      id: params.serverId,
+      members: {
+        some: {
+          profileId: profile.id,
+        },
+      },
+    },
+    include: {
+      channels: {
+        where: {
+          name: 'general',
+        },
+        orderBy: {
+          createdAt: 'asc',
+        },
+      },
+    },
+  });
+
+  const initialChannel = server?.channels[0];
+
+  if (initialChannel?.name !== 'general') {
+    return null;
+  }
+
+  return redirect(`/servers/${params.serverId}/channels/${initialChannel?.id}`);
 };
 
 export default ServerIdPage;

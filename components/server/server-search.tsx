@@ -31,9 +31,9 @@ const ServerSearch: FC<ServerSearchProps> = ({ data }) => {
   const params = useParams();
 
   useEffect(() => {
-    const down = (e: KeyboardEvent) => {
-      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
-        e.preventDefault();
+    const down = (event: KeyboardEvent) => {
+      if (event.key === 'k' && (event.metaKey || event.ctrlKey)) {
+        event.preventDefault();
         setOpen((open) => !open);
       }
     };
