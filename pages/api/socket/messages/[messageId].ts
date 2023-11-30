@@ -11,7 +11,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponseServerIo) => {
 
   try {
     const profile = await currentProfilePages(req);
-    const { content, fileUrl } = req.body;
+    const { content } = req.body;
     const { messageId, serverId, channelId } = req.query;
 
     if (!profile) {
@@ -24,10 +24,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponseServerIo) => {
 
     if (!channelId) {
       return res.status(400).json({ error: 'Channel ID missing' });
-    }
-
-    if (!content) {
-      return res.status(400).json({ error: 'Content missing' });
     }
 
     const server = await db.server.findFirst({
