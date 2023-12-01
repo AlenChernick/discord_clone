@@ -109,7 +109,7 @@ const ChatItem: FC<ChatItemProps> = ({
     form.reset({
       content: content,
     });
-  }, [content]);
+  }, [content, form]);
 
   const fileType = fileUrl?.split('.').pop();
   const memberProfileName = member.profile?.name.includes('null')
