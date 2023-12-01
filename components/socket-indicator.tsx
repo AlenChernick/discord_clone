@@ -10,15 +10,15 @@ const SocketIndicator: FC = () => {
 
   if (!isConnected) {
     return (
-      <Badge variant='outline' className='bg-yellow-600 text-white border-none'>
-        Fallback: Pooling every 1s
+      <Badge variant='outline' className='bg-red-600 text-white border-none'>
+        Reconnecting
       </Badge>
     );
   }
 
   return (
     <Badge variant='outline' className='bg-emerald-600 text-white border-none'>
-      Live: Real-time updates
+      Connected
     </Badge>
   );
 };
