@@ -22,8 +22,8 @@ const InviteModal: FC = () => {
 
   const inviteUrl = `${origin}/invite/${server?.inviteCode}`;
 
-  const onCopy = () => {
-    navigator.clipboard.writeText(inviteUrl);
+  const onCopy = async () => {
+    await navigator.clipboard.writeText(inviteUrl);
     setCopied(true);
 
     setTimeout(() => {

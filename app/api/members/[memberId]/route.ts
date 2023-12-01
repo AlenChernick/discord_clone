@@ -3,9 +3,10 @@ import { currentProfile } from '@/lib/current-profile';
 import { db } from '@/lib/db';
 
 export async function DELETE(req: Request, { params }: { params: { memberId: string } }) {
+  const { searchParams } = new URL(req.url);
+
   try {
     const profile = await currentProfile();
-    const { searchParams } = new URL(req.url);
 
     const serverId = searchParams.get('serverId');
 
@@ -56,9 +57,10 @@ export async function DELETE(req: Request, { params }: { params: { memberId: str
 }
 
 export async function PATCH(req: Request, { params }: { params: { memberId: string } }) {
+  const { searchParams } = new URL(req.url);
+
   try {
     const profile = await currentProfile();
-    const { searchParams } = new URL(req.url);
     const { role } = await req.json();
 
     const serverId = searchParams.get('serverId');
