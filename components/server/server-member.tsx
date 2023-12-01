@@ -21,6 +21,9 @@ const roleIconMap = {
 const ServerMember: FC<ServerMemberProps> = ({ member, server }) => {
   const params = useParams();
   const router = useRouter();
+  const memberProfileName = member.profile.name.includes('null')
+    ? member.profile.name.replace('null', '')
+    : member.profile.name;
 
   const icon = roleIconMap[member.role];
 
@@ -41,7 +44,7 @@ const ServerMember: FC<ServerMemberProps> = ({ member, server }) => {
           'font-semibold text-sm text-zinc-500 group:hover:text-zinc-600 dark:text-zinc-400 dark:group-hover:text-zinc-300 transition',
           params?.memberId === member.id && 'text-primary dark:text-zinc-200 dark:group-hover:text-white'
         )}>
-        {member.profile.name.includes('null') ? member.profile.name.replace('null', '') : member.profile.name}
+        {memberProfileName}
       </p>
       {icon}
     </button>

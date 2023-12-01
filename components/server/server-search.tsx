@@ -82,10 +82,11 @@ const ServerSearch: FC<ServerSearchProps> = ({ data }) => {
             return (
               <CommandGroup key={label} heading={label}>
                 {data?.map(({ id, icon, name }) => {
+                  name = name.includes('null') ? name.replace('null', '') : name;
                   return (
                     <CommandItem key={id} onSelect={() => onClick({ id, type })}>
                       {icon}
-                      <span>{name.includes('null') ? name.replace('null', '') : name}</span>
+                      <span>{name}</span>
                     </CommandItem>
                   );
                 })}

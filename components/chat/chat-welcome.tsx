@@ -7,7 +7,7 @@ type ChatWelcomeProps = {
 };
 
 const ChatWelcome: FC<ChatWelcomeProps> = ({ name, type }) => {
-  name = name.includes('null') ? name.replace('null', '') : name;
+  const chatWelcomeName = (name = name.includes('null') ? name.replace('null', '') : name);
 
   return (
     <div className='space-y-2 px-4 mb-4'>
@@ -22,8 +22,8 @@ const ChatWelcome: FC<ChatWelcomeProps> = ({ name, type }) => {
       </p>
       <p className='text-zinc-600 dark:text-zinc-400 text-sm'>
         {type === 'channel'
-          ? `This is the start of the #${name}.`
-          : `This is the start of your conversation with ${name}`}
+          ? `This is the start of the #${chatWelcomeName}.`
+          : `This is the start of your conversation with ${chatWelcomeName}`}
       </p>
     </div>
   );
