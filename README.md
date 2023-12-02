@@ -1,4 +1,20 @@
-# Fullstack Discord Clone
+# Fullstack Discord Clone - Next.js 14
+
+<br />
+<p align="center">
+  <a href="https://discordclone-production-b545.up.railway.app">
+    <img src="https://res.cloudinary.com/dhrtde6px/image/upload/v1661942029/Shmerllo/Shmerllo-logo_iszt8t.png" alt="Logo" width="100%" height="100%">
+  </a>
+
+  <h3 align="center">Discord-Clone</h3>
+
+  <p align="center">
+    This project is chat groups app inspired by Discrod.
+    <br />
+    <br />
+    <a href="https://shmerllo.herokuapp.com](https://discordclone-production-b545.up.railway.app">View Demo</a>
+  </p>
+</p>
 
 Built With:
 
