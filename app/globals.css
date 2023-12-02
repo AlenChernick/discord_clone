@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 @tailwind screens;
+@import '~@uploadthing/react/styles.css';
+
+* {
+  touch-action: manipulation;
+}
 
 html,
 body,
@@ -82,4 +87,35 @@ body,
   }
 }
 
-@import '~@uploadthing/react/styles.css';
+a,
+button,
+input,
+select,
+textarea {
+  outline: none;
+}
+
+@media only screen and (hover: none) {
+  a,
+  button,
+  input,
+  select,
+  textarea {
+    outline: none;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  a,
+  button,
+  input,
+  select,
+  textarea {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .cl-userButtonPopoverCard {
+    z-index: 99999 !important;
+    pointer-events: all;
+  }
+}

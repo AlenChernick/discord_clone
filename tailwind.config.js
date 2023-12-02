@@ -16,6 +16,9 @@ module.exports = withUt({
         "2xl": "1400px",
       },
     },
+    variants: {
+      opacity: ({ after }) => after(['disabled'])
+    },
     extend: {
       colors: {
         border: "hsl(var(--border))",

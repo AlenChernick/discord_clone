@@ -15,7 +15,7 @@ const ActionTooltip: FC<ActionTooltipProps> = ({ label, children, side, align })
     <TooltipProvider>
       <Tooltip delayDuration={50}>
         <TooltipTrigger asChild>{children}</TooltipTrigger>
-        <TooltipContent side={side} align={align}>
+        <TooltipContent side={side} align={align} className='hidden md:block'>
           <p className='font-semibold text-sm capitalize'>{label.toLocaleLowerCase()}</p>
         </TooltipContent>
       </Tooltip>
