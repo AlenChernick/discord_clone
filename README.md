@@ -3,7 +3,7 @@
 <br />
 <p align="center">
   <a href="https://discordclone-production-b545.up.railway.app">
-    <img src="https://res.cloudinary.com/dhrtde6px/image/upload/v1661942029/Shmerllo/Shmerllo-logo_iszt8t.png" alt="Logo" width="100%" height="100%">
+    <img src="https://utfs.io/f/459927ce-d175-4c08-9e42-0d4095d186a4-ngbykt.png" alt="Logo" width="100%" height="100%">
   </a>
 
   <h3 align="center">Discord-Clone</h3>
@@ -12,7 +12,7 @@
     This project is chat groups app inspired by Discrod.
     <br />
     <br />
-    <a href="https://shmerllo.herokuapp.com](https://discordclone-production-b545.up.railway.app">View Demo</a>
+    <a href="https://discordclone-production-b545.up.railway.app">View Demo</a>
   </p>
 </p>
 
