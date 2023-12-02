@@ -77,7 +77,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponseServerIo) => {
       },
     });
 
-    const channelKey = `chat:${conversationId}:messages`;
+    const channelKey = `chat:${conversation.id}:messages`;
 
     res?.socket?.server?.io?.emit(channelKey, message);
 

@@ -47,7 +47,6 @@ const ChatInput: FC<ChatInputProps> = ({ apiUrl, query, name, type }) => {
       });
 
       await axios.post(url, values);
-
       form.reset();
       router.refresh();
     } catch (error) {
