@@ -19,12 +19,14 @@
 Built With:
 
 - Next.js 14
+- TypeScript
 - React
+- Node.js
 - Socket.io
 - Prisma
 - Tailwind
-- MySQL(PlanetScale)
 - shadcn/ui
+- MySQL(PlanetScale)
 
 Features:
 
