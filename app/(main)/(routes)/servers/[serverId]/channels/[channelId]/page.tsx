@@ -18,6 +18,8 @@ type ChannelIdPageProps = {
 
 const ChannelIdPage: NextPage<ChannelIdPageProps> = async ({ params }) => {
   const profile = await currentProfile();
+  const messagesApiURL = process.env.NEXT_PUBLIC_MESSAGES_API_URL;
+  const messagesSocketApiURL = process.env.NEXT_PUBLIC_MESSAGES_SOCKET_API_URL;
 
   if (!profile) {
     return redirectToSignIn();
@@ -50,8 +52,8 @@ const ChannelIdPage: NextPage<ChannelIdPageProps> = async ({ params }) => {
             name={channel.name}
             chatId={channel.id}
             type='channel'
-            apiUrl='/api/messages'
-            socketUrl='/api/socket/messages'
+            apiUrl={messagesApiURL}
+            socketUrl={messagesSocketApiURL}
             socketQuery={{
               channelId: channel.id,
               serverId: channel.serverId,
@@ -62,7 +64,7 @@ const ChannelIdPage: NextPage<ChannelIdPageProps> = async ({ params }) => {
           <ChatInput
             name={channel.name}
             type='channel'
-            apiUrl='/api/socket/messages'
+            apiUrl={messagesSocketApiURL}
             query={{
               channelId: channel.id,
               serverId: channel.serverId,

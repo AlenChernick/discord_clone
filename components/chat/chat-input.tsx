@@ -15,7 +15,7 @@ import { useRouter } from 'next/navigation';
 import EmojiPicker from '@/components/emoji-picker';
 
 type ChatInputProps = {
-  apiUrl: string;
+  apiUrl: string | undefined;
   query: Record<string, any>;
   name: string;
   type: 'conversation' | 'channel';
@@ -42,7 +42,7 @@ const ChatInput: FC<ChatInputProps> = ({ apiUrl, query, name, type }) => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       const url = qs.stringifyUrl({
-        url: apiUrl,
+        url: apiUrl ?? '',
         query,
       });
 

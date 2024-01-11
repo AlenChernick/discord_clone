@@ -16,8 +16,8 @@ type ChatMessagesProps = {
   name: string;
   member: Member;
   chatId: string;
-  apiUrl: string;
-  socketUrl: string;
+  apiUrl: string | undefined;
+  socketUrl: string | undefined;
   socketQuery: Record<string, string>;
   paramKey: 'channelId' | 'conversationId';
   paramValue: string;

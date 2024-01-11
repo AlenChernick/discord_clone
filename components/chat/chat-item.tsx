@@ -29,7 +29,7 @@ type ChatItemProps = {
   deleted: boolean;
   currentMember: Member;
   isUpdated: boolean;
-  socketUrl: string;
+  socketUrl: string | undefined;
   socketQuery: Record<string, string>;
 };
 

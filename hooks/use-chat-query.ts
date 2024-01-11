@@ -5,7 +5,7 @@ import { useSocket } from '@/components/providers/socket-provider';
 
 type ChatQueryProps = {
   queryKey: string;
-  apiUrl: string;
+  apiUrl: string | undefined;
   paramKey: 'channelId' | 'conversationId';
   paramValue: string;
 };
@@ -16,7 +16,7 @@ export const useChatQuery = ({ queryKey, apiUrl, paramKey, paramValue }: ChatQue
   const fetchMessages = async ({ pageParam = undefined }) => {
     const url = qs.stringifyUrl(
       {
-        url: apiUrl,
+        url: apiUrl ?? '',
         query: {
           cursor: pageParam,
           [paramKey]: paramValue,
