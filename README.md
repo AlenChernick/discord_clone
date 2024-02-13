@@ -2,7 +2,7 @@
 
 <br />
 <p align="center">
-  <a href="https://discordclone-production-b545.up.railway.app">
+  <a href="https://discord-clone-8g19.onrender.com">
     <img src="https://utfs.io/f/459927ce-d175-4c08-9e42-0d4095d186a4-ngbykt.png" alt="Logo" width="100%" height="100%">
   </a>
 
@@ -12,7 +12,7 @@
     This project is chat groups app inspired by Discrod.
     <br />
     <br />
-    <a href="https://discordclone-production-b545.up.railway.app">View Demo</a>
+    <a href="https://discord-clone-8g19.onrender.com">View Demo</a>
   </p>
 </p>
 
